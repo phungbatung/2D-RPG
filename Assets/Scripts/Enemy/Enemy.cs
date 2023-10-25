@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    
+    [Header("Stunned info")]
+    public float stunnedDuration;
+    public Vector2 stunnedDirection;
+
+    [Header("Move info")]
+    public float moveSpeed;
+    public float idleTime;
+    public float battleTime;
+
+    [Header("Attack info")]
+    public float attackDistance;
+    public float attackCooldown;
+    [HideInInspector] public float lastTimeAttacked;
 
     [SerializeField] protected LayerMask whatIsPlayer;
     public EnemyStateMachine stateMachine { get; private set; }

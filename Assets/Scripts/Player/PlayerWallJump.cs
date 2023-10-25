@@ -12,7 +12,7 @@ public class PlayerWallJump : PlayerState
     {
         base.Enter();
         player.SetVelocity(-player.facingDir * 5, player.jumpForce);
-        stateTimer = 1f;
+        /*stateTimer = 1f;*/
     }
 
     public override void Exit()
@@ -23,7 +23,9 @@ public class PlayerWallJump : PlayerState
     public override void Update()
     {
         base.Update();
-        if (stateTimer < 0)
+        /*if (stateTimer < 0)
+            stateMachine.ChangeState(player.airState);*/
+        if(player.rb.velocity.y<0)
             stateMachine.ChangeState(player.airState);
         if (player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);

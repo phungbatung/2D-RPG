@@ -13,6 +13,7 @@ public class PlayerPrimaryAttack : PlayerState
 
     public override void Enter()
     {
+        xInput = 0;
         base.Enter();
         if(comboCounter > 1 || lastTimeAttacked + comboWindow <= Time.time)
             comboCounter = 0;
